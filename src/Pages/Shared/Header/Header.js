@@ -54,7 +54,7 @@ const Header = () => {
                   <>
                   <span>{user?.displayName}</span>
                   <button onClick={handleLogout}>Logout</button>
-                  <Link to='/myservice'>My Service</Link>
+                  <Link to='/additem'>Add Item</Link>
                   <Link to='/myreviews'>My Reviews</Link>
                   </>
                   :
