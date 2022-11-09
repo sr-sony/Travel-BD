@@ -1,5 +1,7 @@
 import Item from "../../Pages/Items/Item/Item";
 import Items from "../../Pages/Items/Items/Items";
+import Login from "../../Pages/Login/Login";
+import Register from "../../Pages/Login/Register";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../../Layout/Main");
@@ -19,9 +21,17 @@ export const router = createBrowserRouter([
                 element:<Items></Items>
             },
             {
-                path: '/item/:id',
+                path: '/service/:id',
                 element: <Item></Item>,
                 loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+            },
+            {
+                path: '/login',
+                element:<Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             }
         ]
     }
