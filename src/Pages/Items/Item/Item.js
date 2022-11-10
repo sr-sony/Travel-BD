@@ -62,34 +62,53 @@ const Item = () => {
           <img src={img} alt="item img" />
         </figure>
         <div className="card-body">
-        <h2 className="card-title text-4xl font-semibold text-red-600 my-5">Place Name: {name}</h2>
-          <p className=" text-xl font-semibold">Cost: {price}</p>
+        <h2 className="card-title text-4xl font-semibold my-5">Place Name: <span className="text-red-600 font-extrabold">{name}</span></h2>
+          <p className=" text-2xl font-semibold">Cost: <span className="font-extrabold text-orange-600">${price}</span></p>
           <p className="text-xl">{description}</p>
         </div>
       </div>
 
       <div>
+      <p className="text-5xl font-bold my-6 text-center bg-base-200 p-8 shadow-lg rounded-lg">Reviews</p>
         {reviewFilter.map((r) => (
-          <p r={r}>
-            {<img style={{ height: "30px" }} src={r.userImage} alt=""></img>}
-            {<p>name: {r.userName}</p>}
-            {r.userReview}
-          </p>
+          <div r={r}>
+            
+
+            <div className="lg:w-[1000px] mx-auto card card-side mb-5 rounded-xl shadow-xl grid lg:grid-cols-3 justify-center items-center">
+                <figure>
+                  <img
+                    className="rounded-full ml-5 w-20"
+                    src={r.userImage}
+                    alt="user img"
+                  />
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title">{r.userName}</h2>
+                  <p>{r.userReview}</p>
+                  
+                </div>
+                
+              </div>
+          </div>
         ))}
       </div>
 
       {user?.uid ? (
         <>
-          <div>
+        
+          <p className="text-3xl mx-auto lg:w-[1000px] font-bold my-6 text-center bg-base-200 p-8 shadow-lg rounded-lg">Post Your Review</p>
+        
+          <div className="flex justify-center">
             <form onSubmit={handleReviews}>
               <textarea
                 name="review"
-                className="textarea textarea-bordered h-24 w-full"
+                className="textarea textarea-bordered h-24 lg:w-[1000px] mx-auto border w-full"
                 placeholder="Your Message"
                 required
               ></textarea>
-
-              <input className="btn" type="submit" value="Place Your Order" />
+              
+              <button className="btn flex justify-center mx-auto rounded-lg shadow-lg my-5 text-xl" type="submit" value="Place Your Order" >Review</button>
+              
             </form>
           </div>
         </>

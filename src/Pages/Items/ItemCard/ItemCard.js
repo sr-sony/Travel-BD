@@ -28,7 +28,7 @@ const ItemCard = ({ item }) => {
           <p> {description}</p>
           <div className="card-actions justify-start">
             <Link to={`/service/${_id}`}>
-              <button className="btn btn-primary rounded-lg">View More</button>
+              <button className="btn btn-primary rounded-lg text-xl">View More</button>
             </Link>
           </div>
         </div>
