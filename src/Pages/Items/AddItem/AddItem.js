@@ -28,8 +28,6 @@ const AddItem = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          // alert("Item Added Successfully");
-          
           form.reset();
         }
       })
@@ -38,26 +36,31 @@ const AddItem = () => {
 
   const notify = () => toast("Items added successfully");
   return (
-    <div>
-      <form onSubmit={addItem}>
+    <div className="m-5">
+      <p className="text-3xl mx-auto lg:w-[1000px] font-bold my-6 text-center bg-base-200 p-8 shadow-lg rounded-lg">Add a place you wish to travel</p>
+      <form className="lg:w-[1000px] mx-auto border w-full" onSubmit={addItem}>
+        <p className="mb-5 text-2xl font-medium ">Enter place photo url</p>
         <input
           name="itemPhoto"
           type="text"
           placeholder="Photo URL"
-          className="input input-ghost w-full  input-bordered"
+          className="input input-ghost w-full  input-bordered mb-5"
         />
+        <p className="mb-5 text-2xl font-medium ">Enter place name</p>
         <input
           name="itemName"
           type="text"
           placeholder="Title"
-          className="input input-ghost w-full  input-bordered"
+          className="input input-ghost w-full  input-bordered mb-5"
         />
+        <p className="mb-5 text-2xl font-medium ">Enter expense</p>
         <input
           name="itemPrice"
           type="text"
           placeholder="Price"
-          className="input input-ghost w-full  input-bordered"
+          className="input input-ghost w-full  input-bordered mb-5"
         />
+        <p className="mb-5 text-2xl font-medium ">Enter place description</p>
         <textarea
           name="itemInfo"
           className="textarea textarea-bordered h-24 w-full"
@@ -65,8 +68,8 @@ const AddItem = () => {
           required
         ></textarea>
 
-        <div>
-        <input onClick={notify} className="btn" type="submit" value="Add Item" />
+        <div className="flex justify-center mx-auto">
+        <input onClick={notify} className="btn mx-auto justify-center rounded-lg shadow-xl my-10" type="submit" value="Add Item" />
         <ToastContainer />
         </div>
       </form>
