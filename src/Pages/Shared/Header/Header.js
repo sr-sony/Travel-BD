@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import useTitle from "../../../Title/useTitle";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Header = () => {
   useTitle('Travel BD');
@@ -11,6 +13,7 @@ const Header = () => {
       .then(() => {})
       .catch((err) => console.err(err));
   };
+  const notify = () => toast("Review added successfully");
   return (
     <div className="navbar bg-neutral text-neutral-content my-5">
       <div className="navbar-start">
@@ -42,8 +45,9 @@ const Header = () => {
             <li>
               {user?.uid ? (
                 <>
-                  <span>{user?.displayName}</span>
-                  <button onClick={handleLogout}>Logout</button>
+                  <span>{user?.displayName}</span> 
+                  <div onClick={notify}><button onClick={handleLogout}>Logout</button></div>
+                  <ToastContainer></ToastContainer>
                   <Link to="/additem">Add a Place</Link>
                   <Link to="/myreviews">My Reviews</Link>
                 </>
@@ -70,6 +74,9 @@ const Header = () => {
             <Link to="/">Home</Link>
           </li>
           <li className="font-semibold text-xl">
+            <Link to="/blogs">Blogs</Link>
+          </li>
+          <li className="font-semibold text-xl">
             {user?.uid ? (
               <>
                 <Link className="mx-5" to="/additem">
@@ -87,8 +94,9 @@ const Header = () => {
         <li className="font-semibold text-xl">
           {user?.uid ? (
             <>
-              <span className="mx-5">{user?.displayName}</span>
-              <button onClick={handleLogout}>Logout</button>
+              <span className="mx-3">{user?.displayName}</span> 
+              <button className="mr-2" onClick={handleLogout}>Logout</button>
+              
             </>
           ) : (
             <>

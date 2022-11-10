@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import img from '../../assets/image/signup.webp'
 import useTitle from '../../Title/useTitle';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     useTitle('Registration')
     const {createUser} = useContext(AuthContext)
+    const notify = () => toast("Register successfully");
     const handleSignUp = event =>{
         event.preventDefault();
         const form = event.target;
@@ -54,7 +57,8 @@ const Register = () => {
                             
                         </div>
                         <div className="form-control mt-6">
-                            <input className="btn btn-primary rounded-lg" type="submit" value="Sign Up" />
+                            <input  onClick={notify} className="btn btn-primary rounded-lg" type="submit" value="Sign Up" />
+                            <ToastContainer></ToastContainer>
                         </div>
                     </form>
                     <p className='text-center mr-2 mb-10'>Already have an account? <Link className='text-orange-600 ml-3 text-xl font-extrabold' to="/login">Login</Link> </p>

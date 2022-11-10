@@ -1,3 +1,4 @@
+import Blogs from "../../Pages/Blogs/Blogs";
 import AddItem from "../../Pages/Items/AddItem/AddItem";
 import Item from "../../Pages/Items/Item/Item";
 import Items from "../../Pages/Items/Items/Items";
@@ -17,7 +18,7 @@ export const router = createBrowserRouter([
         element: <Main></Main>,
         children:[
             {
-                path: '/',
+                                             path: '/',
                 element: <Home></Home>
             },
             {
@@ -53,7 +54,15 @@ export const router = createBrowserRouter([
                 path: '/update/:id',
                 element: <PrivateRoute><Update></Update></PrivateRoute>,
                 loader : ({params}) => fetch (`https://sr-studios-server.vercel.app/reviews/${params.id}`)
+            },
+            {
+                path: '/blogs',
+                element: <Blogs></Blogs>
+            },
+            {
+                path: '*',
+                element: <p>404! Route not found</p>
             }
-        ]
+        ]                            
     }
 ])

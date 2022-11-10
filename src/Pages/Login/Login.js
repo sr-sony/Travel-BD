@@ -5,6 +5,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import img from '../../assets/image/login.webp'
 import useTitle from "../../Title/useTitle";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   useTitle('Login')
@@ -13,6 +15,8 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+
+  const notify = () => toast("Login successfully");
 
   const navigateTo = location.state?.from?.pathname || "/";
 
@@ -96,7 +100,8 @@ const Login = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn rounded-lg shadow-lg btn-primary">Login</button>
+              <button  onClick={notify} className="btn rounded-lg shadow-lg btn-primary">Login</button>
+              <ToastContainer></ToastContainer>
             </div>
           </form>
           <div className="flex justify-center flex-col">
