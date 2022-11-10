@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useTitle from "../../Title/useTitle";
+import About from "../About/About";
 import AllItems from "../Items/AllItems/AllItems";
 import Items from "../Items/Items/Items";
 import MyServices from "../MyServices/MyServices";
@@ -19,6 +20,7 @@ const Home = () => {
       </Link>
 
       <MyServices></MyServices>
+      <About></About>
     </div>
   );
 };
