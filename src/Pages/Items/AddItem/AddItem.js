@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import useTitle from "../../../Title/useTitle";
 
 const AddItem = () => {
-  useTitle('Add Item')
+  useTitle("Add Item");
   const { user } = useContext(AuthContext);
   const addItem = (event) => {
     event.preventDefault();
@@ -39,7 +39,9 @@ const AddItem = () => {
   const notify = () => toast("Items added successfully");
   return (
     <div className="m-5">
-      <p className="text-3xl mx-auto lg:w-[1000px] font-bold my-6 text-center bg-base-200 p-8 shadow-lg rounded-lg">Add a place you wish to travel</p>
+      <p className="text-3xl mx-auto lg:w-[1000px] font-bold my-6 text-center bg-base-200 p-8 shadow-lg rounded-lg">
+        Add a place you wish to travel
+      </p>
       <form className="lg:w-[1000px] mx-auto border w-full" onSubmit={addItem}>
         <p className="mb-5 text-2xl font-medium ">Enter place photo url</p>
         <input
@@ -71,8 +73,13 @@ const AddItem = () => {
         ></textarea>
 
         <div className="flex justify-center mx-auto">
-        <input onClick={notify} className="btn mx-auto justify-center rounded-lg shadow-xl my-10" type="submit" value="Add Item" />
-        <ToastContainer />
+          <input
+            onClick={notify}
+            className="btn mx-auto justify-center rounded-lg shadow-xl my-10"
+            type="submit"
+            value="Add Item"
+          />
+          <ToastContainer />
         </div>
       </form>
     </div>
