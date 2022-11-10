@@ -4,8 +4,10 @@ import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import img from '../../assets/image/login.webp'
+import useTitle from "../../Title/useTitle";
 
 const Login = () => {
+  useTitle('Login')
   const { loginUser, loginInWithGoogle, loginInWithGithub } =
     useContext(AuthContext);
   const [error, setError] = useState("");
@@ -60,11 +62,11 @@ const Login = () => {
   };
   return (
     <div className="hero min-h-screen">
-      <div className="hero-content grid lg:grid-cols-2 grid-cols-1">
+      <div className="hero-content grid lg:grid-cols-2 grid-cols-1 gap-10">
         <div className="text-center lg:text-left">
           <img src={img} alt=''></img>
         </div>
-        <div className="card flex-shrink-0 rounded-xl w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="card flex-shrink-0 rounded-xl w-full max-w-md shadow-2xl bg-base-100">
         
           <form onSubmit={handleLogin} className="card-body">
           <h1 className="text-5xl font-bold text-center my-5">Login</h1>

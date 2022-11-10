@@ -37,11 +37,13 @@ const Update = () => {
         
     }
     return (
-        <div>
-            <h2>Please Update: {reviewStore.userReview}</h2>
+        <div className='flex flex-col mx-auto text-center justify-center'>
+            
+            <p className="text-3xl mx-auto lg:w-[1000px] font-bold my-6 text-center bg-base-200 p-8 shadow-lg rounded-lg">Update Item : {reviewStore.userReview}</p>
             <form onSubmit={handleUpdateReview}>
-            <textarea  name="review" className="textarea textarea-bordered h-24 w-full" placeholder="Your Message" defaultValue={reviewStore.userReview} required></textarea>
-                <button type="submit">Update Review</button>
+            <textarea  name="review" className="textarea lg:w-[1000px] textarea-bordered h-24 w-full" placeholder="Your Message" defaultValue={reviewStore.userReview} required></textarea>
+            <br></br>
+                <button className="btn flex justify-center mx-auto rounded-lg shadow-lg my-5 text-xl" type="submit">Update Review</button>
             </form>
         </div>
     );

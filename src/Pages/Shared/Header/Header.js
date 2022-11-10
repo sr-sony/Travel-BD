@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
+import useTitle from "../../../Title/useTitle";
 
 const Header = () => {
+  useTitle('Travel BD');
   const { user, logOut } = useContext(AuthContext);
   const handleLogout = () => {
     logOut()

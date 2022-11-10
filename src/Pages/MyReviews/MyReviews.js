@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import useTitle from "../../Title/useTitle";
 
 const MyReviews = () => {
+    useTitle('My Reviews');
   const [reviews, setReviews] = useState([]);
   const { user } = useContext(AuthContext);
 

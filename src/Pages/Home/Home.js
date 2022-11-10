@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../Title/useTitle';
 import AllItems from '../Items/AllItems/AllItems';
 import Items from '../Items/Items/Items';
 import Banner from './Banner/Banner';
 
 const Home = () => {
+    useTitle('Home')
     return (
         <div>
             <Banner></Banner>

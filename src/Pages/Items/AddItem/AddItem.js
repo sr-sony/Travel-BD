@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from "../../../Title/useTitle";
 
 const AddItem = () => {
+  useTitle('Add Item')
   const { user } = useContext(AuthContext);
   const addItem = (event) => {
     event.preventDefault();

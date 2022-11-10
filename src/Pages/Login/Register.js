@@ -2,8 +2,10 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import img from '../../assets/image/signup.webp'
+import useTitle from '../../Title/useTitle';
 
 const Register = () => {
+    useTitle('Registration')
     const {createUser} = useContext(AuthContext)
     const handleSignUp = event =>{
         event.preventDefault();
@@ -14,17 +16,16 @@ const Register = () => {
         createUser(email, password)
         .then(result => {
             const user = result.user;
-            console.log(user);
         })
         .catch(err => console.error(err));
     }
     return (
         <div className="hero w-full my-20">
-            <div className="hero-content grid grid-cols-1 lg:grid-cols-2 flex-col lg:flex-row">
+            <div className="hero-content grid grid-cols-1 lg:grid-cols-2 flex-col gap-10 lg:flex-row">
                 <div className="text-center lg:text-left">
                     <img src={img} alt=''></img>
                 </div>
-                <div className="card flex-shrink-0 w-full  shadow-2xl bg-base-100 py-20 justify-center mx-auto rounded-xl">
+                <div className="card flex-shrink-0 w-full  max-w-md shadow-2xl bg-base-100 justify-center mx-auto rounded-xl">
                     <h1 className="text-5xl text-center font-bold">Sign Up</h1>
                     <form onSubmit={handleSignUp} className="card-body">
                         <div className="form-control">
@@ -56,7 +57,7 @@ const Register = () => {
                             <input className="btn btn-primary rounded-lg" type="submit" value="Sign Up" />
                         </div>
                     </form>
-                    <p className='text-center mr-2'>Already have an account? <Link className='text-orange-600 ml-3 text-xl font-extrabold' to="/login">Login</Link> </p>
+                    <p className='text-center mr-2 mb-10'>Already have an account? <Link className='text-orange-600 ml-3 text-xl font-extrabold' to="/login">Login</Link> </p>
                 </div>
             </div>
         </div>
