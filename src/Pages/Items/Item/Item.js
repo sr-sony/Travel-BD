@@ -56,19 +56,15 @@ const Item = () => {
   };
   return (
     <div>
-      <div className="card card-compact w-96 bg-base-100 shadow-xl">
+      <h2 className="text-6xl text-center font-bold mt-10">Place Details</h2>
+      <div className="card grid lg:grid-cols-2 grid-cols-1 lg:card-side rounded-lg my-10 shadow-xl">
         <figure>
-          <img src={img} alt="img" />
+          <img src={img} alt="item img" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">{name}</h2>
-          <p>Price: {price}</p>
-          <p>{description}</p>
-          <div className="card-actions justify-end">
-            <Link to={`/service/${_id}`}>
-              <button className="btn btn-primary">View More</button>
-            </Link>
-          </div>
+        <h2 className="card-title text-4xl font-semibold text-red-600 my-5">Place Name: {name}</h2>
+          <p className=" text-xl font-semibold">Cost: {price}</p>
+          <p className="text-xl">{description}</p>
         </div>
       </div>
 

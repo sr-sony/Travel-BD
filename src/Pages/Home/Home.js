@@ -9,8 +9,8 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <AllItems></AllItems>
-            <Link to='/services'>
-                <button className='btn'>Visit More Places</button>
+            <Link className='flex justify-center' to='/services'>
+                <button className='btn rounded-lg my-8 text-xl p-2'>Explore More Places</button>
                 </Link>
         </div>
     );

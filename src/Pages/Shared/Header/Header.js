@@ -42,7 +42,7 @@ const Header = () => {
                 <>
                   <span>{user?.displayName}</span>
                   <button onClick={handleLogout}>Logout</button>
-                  <Link to="/additem">Add Item</Link>
+                  <Link to="/additem">Add a Place</Link>
                   <Link to="/myreviews">My Reviews</Link>
                 </>
               ) : (
@@ -71,7 +71,7 @@ const Header = () => {
             {user?.uid ? (
               <>
                 <Link className="mx-5" to="/additem">
-                  Add an Item
+                Add a Place
                 </Link>
                 <Link to="/myreviews">My Reviews</Link>
               </>
