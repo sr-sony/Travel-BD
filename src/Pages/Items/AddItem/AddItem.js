@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddItem = () => {
   const { user } = useContext(AuthContext);
@@ -14,7 +16,7 @@ const AddItem = () => {
       img: itemPhoto,
       name: itemName,
       price: itemPrice,
-      discription: itemInfo,
+      description: itemInfo,
     };
     fetch("http://localhost:5000/services", {
       method: "POST",
@@ -26,12 +28,15 @@ const AddItem = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          alert("Item Added Successfully");
+          // alert("Item Added Successfully");
+          
           form.reset();
         }
       })
       .catch((err) => console.log(err));
   };
+
+  const notify = () => toast("Items added successfully");
   return (
     <div>
       <form onSubmit={addItem}>
@@ -60,7 +65,10 @@ const AddItem = () => {
           required
         ></textarea>
 
-        <input className="btn" type="submit" value="Add Item" />
+        <div>
+        <input onClick={notify} className="btn" type="submit" value="Add Item" />
+        <ToastContainer />
+        </div>
       </form>
     </div>
   );
