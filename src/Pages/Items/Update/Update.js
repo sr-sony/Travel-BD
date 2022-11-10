@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Update = () => {
     const reviewStore = useLoaderData();
     
     const [item, setItem] = useState(reviewStore);
-    // console.log(user)
+    const notify = () => toast("Review updated successfully");
+
 
     useEffect(() =>{
         fetch('https://sr-studios-server.vercel.app/reviews')
@@ -29,7 +32,6 @@ const Update = () => {
         .then(res => res.json())
         .then(data => {
             if(data.matchedCount > 0){
-                alert("Review Update successfully")
                 
             }
             // console.log(data)
@@ -43,7 +45,8 @@ const Update = () => {
             <form onSubmit={handleUpdateReview}>
             <textarea  name="review" className="textarea lg:w-[1000px] textarea-bordered h-24 w-full" placeholder="Your Message" defaultValue={reviewStore.userReview} required></textarea>
             <br></br>
-                <button className="btn flex justify-center mx-auto rounded-lg shadow-lg my-5 text-xl" type="submit">Update Review</button>
+                <button onClick={notify} className="btn flex justify-center mx-auto rounded-lg shadow-lg my-5 text-xl" type="submit">Update Review</button>
+                <ToastContainer></ToastContainer>
             </form>
         </div>
     );

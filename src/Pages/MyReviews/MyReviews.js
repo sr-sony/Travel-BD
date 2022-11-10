@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import useTitle from "../../Title/useTitle";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MyReviews = () => {
     useTitle('My Reviews');
   const [reviews, setReviews] = useState([]);
   const { user } = useContext(AuthContext);
+  const notify = () => toast("Deleted successfully");
 
   const handleDelete = (review) => {
     const agree = window.confirm(
@@ -21,7 +24,6 @@ const MyReviews = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount > 0) {
-            alert("User deleted successfully");
 
             const remaining = reviews.filter(
               (reviewDlt) => reviewDlt._id !== review._id
@@ -64,15 +66,17 @@ const MyReviews = () => {
                 </div>
                 <div className="card-actions m-5 justify-center">
                     <Link to={`/update/${allRev._id}`}>
-                      <button className="btn rounded-lg mr-5 text-xl">
+                      <button  className="btn rounded-lg mr-5 text-xl">
                         <FaEdit></FaEdit>
                       </button>
+
                     </Link>
                     <button
                       className="btn rounded-lg text-xl text-red-600"
                       onClick={() => handleDelete(allRev)}
                     >
-                      <FaTrash></FaTrash>
+                      <FaTrash onClick={notify}></FaTrash>
+                      <ToastContainer></ToastContainer>
                     </button>
                   </div>
               </div>

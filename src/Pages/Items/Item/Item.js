@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Item = () => {
   const item = useLoaderData();
@@ -8,6 +10,7 @@ const Item = () => {
   
   const { user } = useContext(AuthContext);
   const [review, setReview] = useState([]);
+  const notify = () => toast("Review added successfully");
 
   useEffect(() => {
     fetch("https://sr-studios-server.vercel.app/reviews")
@@ -51,7 +54,6 @@ const Item = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          alert("Order placed Successfully");
           form.reset();
         }
       })
@@ -110,7 +112,8 @@ const Item = () => {
                 required
               ></textarea>
               
-              <button className="btn flex justify-center mx-auto rounded-lg shadow-lg my-5 text-xl" type="submit" value="Place Your Order" >Review</button>
+              <button  onClick={notify} className="btn flex justify-center mx-auto rounded-lg shadow-lg my-5 text-xl" type="submit" value="Place Your Order" >Review</button>
+              <ToastContainer></ToastContainer>
               
             </form>
           </div>
