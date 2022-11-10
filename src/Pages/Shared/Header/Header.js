@@ -15,7 +15,7 @@ const Header = () => {
   };
   const notify = () => toast("Review added successfully");
   return (
-    <div className="navbar bg-neutral text-neutral-content my-5">
+    <div className="navbar bg-neutral text-neutral-content rounded-lg my-5">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -64,7 +64,7 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <Link to="/" className="normal-case font-extrabold text-2xl ml-5">
+        <Link to="/" className="normal-case font-extrabold text-2xl ml-5 text-red-300">
           Travel BD
         </Link>
       </div>

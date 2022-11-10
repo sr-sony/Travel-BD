@@ -1,8 +1,14 @@
 import React from "react";
+import img from '../../../assets/image/icon.png'
 
 const Footer = () => {
   return (
-    <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
+    <footer className="footer footer-center p-10 bg-neutral text-neutral-content rounded-lg ">
+      <div>
+        <p className="text-4xl font-extrabold">Travel BD</p>
+        <img className="w-20 rounded-full" src={img} alt=''></img>
+        <p className="text-2xl font-bold">Sharzan Rahman Sony</p>
+      </div>
       <div className="grid grid-flow-col gap-4">
         <a className="link link-hover">About us</a>
         <a className="link link-hover">Contact</a>
@@ -47,7 +53,7 @@ const Footer = () => {
         </div>
       </div>
       <div>
-        <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
+        <p>Copyright © 2022 - All right reserved by Travel BD</p>
       </div>
     </footer>
   );

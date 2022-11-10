@@ -4,6 +4,7 @@ import img from '../../assets/image/icon.png';
 const About = () => {
   return (
     <div className="my-10">
+        <p className="text-4xl font-bold text-center my-10">About Travel BD</p>
       <div className="hero ">
         <div className="hero-content grid grid-cols-2">
           <div>
