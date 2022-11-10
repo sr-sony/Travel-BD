@@ -8,7 +8,7 @@ const ItemCard = ({ item }) => {
   const { _id, price, img, name, description } = item;
   return (
     <PhotoProvider>
-      <div className="card card-compact w-[500px] shadow-xl rounded-lg mx-auto">
+      <div className="card card-compact w-96 shadow-xl rounded-lg mx-auto">
         <figure className="foo p-5 rounded-lg">
           <PhotoView src={img}>
             <img className="rounded-lg" src={img} alt="img" />
