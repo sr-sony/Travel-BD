@@ -15,7 +15,7 @@ const MyReviews = () => {
     );
     if (agree) {
       console.log("Deleting user with id:", review._id);
-      fetch(`http://localhost:5000/reviews/${review._id}`, {
+      fetch(`https://sr-studios-server.vercel.app/reviews/${review._id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -33,7 +33,7 @@ const MyReviews = () => {
     }
   };
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://sr-studios-server.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
@@ -58,6 +58,7 @@ const MyReviews = () => {
                 </figure>
                 <div className="card-body">
                   <h2 className="card-title">{allRev.userName}</h2>
+                  <p className="font-semibold">Place Name: {allRev.itemName}</p>
                   <p>{allRev.userReview}</p>
                   
                 </div>

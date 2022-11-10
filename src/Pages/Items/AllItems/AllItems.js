@@ -6,7 +6,7 @@ const AllItems = () => {
     console.log(items)
 
     useEffect(()=>{
-        fetch('http://localhost:5000/allitems')
+        fetch('https://sr-studios-server.vercel.app/allitems')
         .then(res=>res.json())
         .then(data=>setItems(data))
     },[])

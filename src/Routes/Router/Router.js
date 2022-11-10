@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
             {
                 path: '/service/:id',
                 element: <PrivateRoute><Item></Item></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params})=> fetch(`https://sr-studios-server.vercel.app/services/${params.id}`)
             },
             {
                 path: '/login',
@@ -52,7 +52,7 @@ export const router = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <PrivateRoute><Update></Update></PrivateRoute>,
-                loader : ({params}) => fetch (`http://localhost:5000/reviews/${params.id}`)
+                loader : ({params}) => fetch (`https://sr-studios-server.vercel.app/reviews/${params.id}`)
             }
         ]
     }

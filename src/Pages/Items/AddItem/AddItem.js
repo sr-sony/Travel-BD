@@ -20,7 +20,7 @@ const AddItem = () => {
       price: itemPrice,
       description: itemInfo,
     };
-    fetch("http://localhost:5000/services", {
+    fetch("https://sr-studios-server.vercel.app/services", {
       method: "POST",
       headers: {
         "content-type": "application/json",

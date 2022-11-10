@@ -17,14 +17,14 @@ const ItemCard = ({ item }) => {
         <div className="card-body">
           <h2 className="card-title text-4xl font-semibold">{name}</h2>
           <p className=" text-xl font-semibold">Price: {price}</p>
-          {/* <p>
+          <p>
               {
                 description.length > 100 ?
                   <p>{description.slice(0, 100) + '...'}</p>
                     :
                   <p>{description}</p>
               }
-          </p> */}
+          </p>
           <p> {description}</p>
           <div className="card-actions justify-start">
             <Link to={`/service/${_id}`}>

@@ -5,12 +5,12 @@ import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 const Item = () => {
   const item = useLoaderData();
   const { img, price, _id, description, name } = item;
-  console.log(item);
+  
   const { user } = useContext(AuthContext);
   const [review, setReview] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://sr-studios-server.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, [review]);
@@ -19,26 +19,29 @@ const Item = () => {
   const reviewFilter = review.filter((obj) => {
     return obj.reviewId === item._id;
   });
-  console.log(reviewFilter);
+  
 
   const handleReviews = (event) => {
     event.preventDefault();
     const form = event.target;
     const reviewerName = user?.displayName || "";
-    // console.log("name",reviewerName);
+    
     const userImage = user?.photoURL || "";
     const userEmail = user?.email;
+    const itemName = item.name;
     const userReview = form.review.value;
+    console.log(itemName)
 
     const reviews = {
       reviewId: _id,
+      itemName,
       userName: reviewerName,
       userReview,
       userImage,
       userEmail,
     };
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://sr-studios-server.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
